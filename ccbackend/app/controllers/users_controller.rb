@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :update, :destroy]
+    skip_before_action :authorized, only: [:create, :update, :destroy, :current_user_edit]
 
 def profile
      render json: { user: current_user }, status: :accepted
@@ -20,22 +20,16 @@ def create
     end
 end
 
-# def edit
-#     @user= User.find_by(id: params[:id])
-# end
 
 def current_user_edit
-    if user = current_user
+     user = User.find(params[:id])
     user.update(user_params)
     render json: user
-    else
-    render json: {error: edit}
-end
 end
 
 def update
     user = current_user
-     if user.update(user_params)
+    if user.update(user_params)
         render json: user
     # head :no_content
     else  
@@ -44,9 +38,8 @@ def update
   end
 
 def destroy
-    user = current_user
+    user = User.find(params[:id])
     user.destroy
-    head :no_content
   end
 
      
