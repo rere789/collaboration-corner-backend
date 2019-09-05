@@ -1,3 +1,4 @@
 class Post < ApplicationRecord
-  belongs_to :user, polymorphic: true
+  belongs_to :user
+  has_many :userprojects
 end
