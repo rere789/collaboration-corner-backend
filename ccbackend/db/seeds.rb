@@ -5,13 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Post.destroy_all()
+Userproject.destroy_all()
 
-post_a = Post.create(description: "I have a great idea to build an app", needed_skillset: "backend developer", snippet: "need help building")
-post_b = Post.create(description: "Want to record new music I have written", needed_skillset: "song writer", snippet: "Need help recording myself")
-post_c = Post.create(description: "Looking for a driven student to help build a website", needed_skillset: "developer", snippet: "blogger needing help")
-post_d = Post.create(description: "Just got a new camera and need models to help build my resume", needed_skillset: "model", snippet: "want free images?")
+post_a = Post.create(user_id: 1, description: "I have a great idea to build an app", needed_skillset: "backend developer", snippet: "need help building")
+post_b = Post.create(user_id: 1, description: "Want to record new music I have written", needed_skillset: "song writer", snippet: "Need help recording myself")
+post_c = Post.create(user_id: 1, description: "Looking for a driven student to help build a website", needed_skillset: "developer", snippet: "blogger needing help")
+post_d = Post.create(user_id: 1, description: "Just got a new camera and need models to help build my resume", needed_skillset: "model", snippet: "want free images?")
 
 
-user_a = User.create(username: "Moana", name: "Momo", school: "flatiron", skillset: "Developer", img: "https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")
-user_b = User.create(username: "Tommy", name: "Tom", school: "GA state", skillset: "Song writer", img: "http://www.liberaldictionary.com/wp-content/uploads/2018/12/men-1.jpg")
-user_c = User.create(username: "Cher", name: "cherry", school: "Tech", skillset: "Model", img: "http://www.inspiredluv.com/wp-content/uploads/2016/09/27-beautiful-girl-image.jpg")
+project_a = Userproject.create(user_id: 2, post_id: 1)
+project_a = Userproject.create(user_id: 3, post_id: 2)
+project_a = Userproject.create(user_id: 4, post_id: 3)
+
+
+10.times do 
+User.create(
+    username: Faker::Internet.username,
+    password: '1234',
+    name: Faker::Name.first_name,
+    school: Faker::Educator.university,
+    skillset: Faker::Educator.degree,
+    img: Faker::LoremPixel.image
+)
+end
+
+
