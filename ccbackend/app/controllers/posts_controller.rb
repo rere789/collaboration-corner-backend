@@ -19,17 +19,17 @@ class PostsController < ApplicationController
         # render json: { error: 'failed to create post' }, status: :not_acceptable
       end
 
-      def update
-        @post = Post.find(params[:id])
-        @post.update(post_params)
-        reder json: @post
-      end
+      # def update
+      #   @post = Post.find(params[:id])
+      #   @post.update(post_params)
+      #   reder json: @post
+      # end
 
     
-      def destroy
-        @post = Post.find(params[:id])
-        @post.destroy
-      end
+      # def destroy
+      #   @post = Post.find(params[:id])
+      #   @post.destroy
+      # end
     
       private
     
