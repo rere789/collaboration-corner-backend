@@ -2,8 +2,8 @@ class PostsController < ApplicationController
     skip_before_action :authorized, only: [:create, :index, :show]
 
     def index
-        @posts = Post.all
-        render json: @posts
+        posts = Post.all
+        render json: posts
       end
     
       def show

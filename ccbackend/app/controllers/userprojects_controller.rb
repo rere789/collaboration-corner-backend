@@ -9,7 +9,8 @@ class UserprojectsController < ApplicationController
       def show
         @project = Userproject.find(params[:id])
         render json: @project
-      end
+    end
+
 
     def create
         @project = Userproject.create(user_project_params)
@@ -33,8 +34,8 @@ class UserprojectsController < ApplicationController
       private
     
       def user_project_params
-        params.permit(:user_id, :post_id)
+        params.require(:userproject).permit(:user_id, :post_id)
       end
 end
 
-# .require(:userproject)
+# 
