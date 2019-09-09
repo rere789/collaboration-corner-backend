@@ -3,4 +3,5 @@ class PostSerializer < ActiveModel::Serializer
   # has_many :users
   has_many :userprojects
   belongs_to :user
+  has_many :events
 end

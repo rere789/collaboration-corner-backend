@@ -18,17 +18,17 @@ class UserprojectsController < ApplicationController
         # render json: { error: 'failed to create post' }, status: :not_acceptable
       end
 
-      def update
-        @project = Userproject.find(params[:id])
-        @project.update(user_project_params)
-        reder json: @project
-      end
+      # def update
+      #   @project = Userproject.find(params[:id])
+      #   @project.update(user_project_params)
+      #   reder json: @project
+      # end
 
     
-      def destroy
-        @project = Userproject.find(params[:id])
-        @project.destroy
-      end
+      # def destroy
+      #   @project = Userproject.find(params[:id])
+      #   @project.destroy
+      # end
      
       private
     
